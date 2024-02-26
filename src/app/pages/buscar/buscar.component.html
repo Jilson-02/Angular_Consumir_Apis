@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular del node</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    h3 {
+      color: #007bff;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-center mt-4">
+      <hr>
+      <form action="" style="max-width: 400px; margin: 0 auto;">
+        <h3>Buscar por Tipo</h3>
+        <div class="form-group d-flex align-items-center">
+          <select class="form-control" #type name="type" aria-label="Default select example">
+            <option disabled selected>Seleccione tipo de Usuario</option>
+            @for (item of datosTipos; track $index) {
+            <option value="{{item.type}}">{{item.type}}</option>
+            }
+          </select>
+          <button class="btn btn-info btn-custom" type="button" (click)="buscarPorTipo(type)"
+            style="display: inline-flex; align-items: center;">
+            <i class="fas fa-search me-1"></i> BUSCAR
+          </button>
+
+        </div>
+      </form>
+      <br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tipo de Usuario</th>
+              <th scope="col">Nombre Usuario</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of datosTipoUsuario; track $index) {
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>{{ item.typeuser.type }}</td>
+              <td>{{ item.user }}</td>
+              <td>{{ item.email }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

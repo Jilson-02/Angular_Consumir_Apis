@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular del node</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    h3 {
+      color: #007bff;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-custom {
+      margin-top: 20px;
+    }
+
+    /* Estilos adicionales */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-center mt-4">
+      <hr>
+      <form action="">
+        <h3>Agregar Tipo Persona <i class=""></i></h3>
+        <div class="form-group">
+          <label for="name">Tipo: <input type="text" #type class="" id="name" placeholder=""></label>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="storeTipo(type)"><i class="fas fa-user-tie"></i> Ingresar
+        </button>
+      </form>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <th>Tipo</th>
+            <th colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(item of datosTipos; track $index){
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.type }}</td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="eliminarTipo(item.id)"><i class="fas fa-trash"></i> Eliminar</button>
+          </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <!-- Bootstrap JS and Font Awesome JS (optional if you're using icons) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+
+</html>

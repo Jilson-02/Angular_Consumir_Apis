@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular del node</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    h3 {
+      color: #007bff;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-center mt-4">
+      <hr>
+      <form action="" style="max-width: 400px; margin: 0 auto;">
+        <h3>Agregar Usuario</h3>
+        <div class="form-group">
+          <select class="form-control" #typeusers_id name="typeusers_id">
+            <option value="" disabled selected>Selecciona el tipo de usuario</option>
+            @for (item of datosTipos; track $index) {
+            <option value="{{item.id}}">{{item.type}}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nombre">Nombre: <input type="text" #user class="" id="nombre" placeholder=""></label>
+        </div>
+        <div class="form-group">
+          <label for="email">Email: <input type="text" #email class="" id="password" placeholder=""></label>
+        </div>
+        <div class="form-group">
+          <label for="password">Paswword: <input type="password" #password class="" id="email" placeholder=""></label>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success btn-custom"
+            (click)="storeUsuario(user, email, password, typeusers_id)">
+            <i class="fas fa-save"></i> Guardar
+          </button>
+        </div>
+      </form>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Correo Electrónico</th>
+            <th colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(item of datosUsuario; track $index){
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.typeuser.type }}</td>
+            <td>{{ item.user }}</td>
+            <td>{{ item.email }}</td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="eliminarUsuario(item.id)"><i class="fas fa-trash"></i> Eliminar</button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
